@@ -10,3 +10,5 @@ alias pg="ping google.com"
 alias naut='nautilus .'
 alias ssr='ssh -l root '
 alias vime='vim "+set mouse=a" '
+alias l='ls -CF'
+alias ll='ls -alh'
