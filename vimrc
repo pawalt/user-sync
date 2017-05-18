@@ -32,3 +32,6 @@ syntax enable
 set background=dark
 colorscheme gruvbox
 set laststatus=2
+set tabstop=4
+set softtabstop=0 noexpandtab
+set shiftwidth=4
