@@ -42,3 +42,11 @@ end
 function vime
 	vim "+set mouse=a" $argv
 end
+
+function hw
+	task project.contains:school urgency.above:0 next
+end
+
+function work
+	task project.contains:work urgency.above:0 next
+end
