@@ -32,7 +32,26 @@ syntax enable
 set background=dark
 colorscheme gruvbox
 set laststatus=2
+
 set tabstop=4
 set softtabstop=0 noexpandtab
 set shiftwidth=4
+
 set shell=/bin/bash
+
+func! WordProcessorMode()
+  setlocal formatoptions=1
+  setlocal noexpandtab
+  map j gj
+  map k gk
+  setlocal spell spelllang=en_us
+  set complete+=s
+  set formatprg=par
+  setlocal wrap
+  setlocal linebreak
+endfu
+com! WP call WordProcessorMode()
+augroup wordprocessor
+  autocmd!
+  autocmd FileType text,txt       call WordProcessorMode()
+augroup END
