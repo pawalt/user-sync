@@ -12,6 +12,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-sensible'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'dag/vim-fish'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,3 +57,7 @@ augroup wordprocessor
   autocmd!
   autocmd FileType text,txt       call WordProcessorMode()
 augroup END
+
+" Notes settings
+let g:notes_directories = ['~/Documents/Notes']
+let g:notes_suffix = '.txt'

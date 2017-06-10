@@ -43,6 +43,10 @@ function vime
 	vim "+set mouse=a" $argv
 end
 
+function note
+	~/user-sync/scripts/note.py $argv
+end
+
 function hw
 	task project.contains:school urgency.above:0 next
 end
