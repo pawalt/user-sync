@@ -23,7 +23,7 @@ call("echo '. ~/user-sync/bashrc' > ~/.bashrc", shell=True)
 
 call("echo 'source ~/user-sync/config.fish' > ~/.config/fish/config.fish", shell=True)
 
-call("ln -s ~/user-sync/taskrc .taskrc", shell=True)
+call("ln -s ~/user-sync/taskrc ~/.taskrc", shell=True)
 
 call("wget -O xt  http://git.io/v6JYg && chmod +x xt && ./xt && rm xt", shell=True)
 
