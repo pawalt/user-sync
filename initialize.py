@@ -27,6 +27,8 @@ call("ln -s ~/user-sync/taskrc ~/.taskrc", shell=True)
 
 call("wget -O xt  http://git.io/v6JYg && chmod +x xt && ./xt && rm xt", shell=True)
 
+call("git config credential.helper store", shell=True)
+
 call("echo 'source ~/user-sync/vimrc' > ~/.vimrc", shell=True)
 call("git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim", shell=True)
 call("vim +PluginInstall +qall", shell=True)
