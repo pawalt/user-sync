@@ -9,7 +9,7 @@ def file_exists(fname):
     except OSError:
         return False
 
-packages = "vim fish task figlet flatpak thunderbird"
+packages = "vim fish task timewarrior figlet flatpak thunderbird"
 if file_exists('/usr/bin/zypper'):
     call("sudo zypper in " + packages + " -y", shell=True)
 elif file_exists('/usr/bin/apt-get'):
