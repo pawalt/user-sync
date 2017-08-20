@@ -22,9 +22,9 @@ call("echo '. ~/user-sync/bash_aliases' > ~/.bash_aliases", shell=True)
 call("echo '. ~/user-sync/bashrc' > ~/.bashrc", shell=True)
 
 call("sh -c '$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)'", shell=True)
-call('git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions', shell=True)
-call(' git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search', shell=True)
-call(' git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting', shell=True)
+call('git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions', shell=True)
+call(' git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search', shell=True)
+call(' git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting', shell=True)
 call("echo '. ~/user-sync/zshrc' > ~/.zshrc", shell=True)
 
 call("echo 'source ~/user-sync/config.fish' > ~/.config/fish/config.fish", shell=True)
