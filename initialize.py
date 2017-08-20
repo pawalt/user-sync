@@ -21,6 +21,8 @@ else:
 call("echo '. ~/user-sync/bash_aliases' > ~/.bash_aliases", shell=True)
 call("echo '. ~/user-sync/bashrc' > ~/.bashrc", shell=True)
 
+call("echo '. ~/user-sync/zshrc' > ~/.zshrc", shell=True)
+
 call("echo 'source ~/user-sync/config.fish' > ~/.config/fish/config.fish", shell=True)
 
 call("ln -s ~/user-sync/taskrc ~/.taskrc", shell=True)
