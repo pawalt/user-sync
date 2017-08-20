@@ -30,9 +30,12 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" setting colorscheme for background
+set t_Co=256
+
 syntax enable
-set background=dark
 colorscheme gruvbox
+set background=dark
 set laststatus=2
 
 set tabstop=4
@@ -61,3 +64,6 @@ augroup END
 " Notes settings
 let g:notes_directories = ['~/Documents/Notes']
 let g:notes_suffix = '.txt'
+
+" Paste toggle
+set pastetoggle=<F2>

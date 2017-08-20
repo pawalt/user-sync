@@ -9,9 +9,9 @@ def file_exists(fname):
     except OSError:
         return False
 
-packages = "vim fish task timewarrior figlet flatpak thunderbird"
+packages = "vim fish zsh task timewarrior figlet flatpak thunderbird"
 if file_exists('/usr/bin/zypper'):
-    call("sudo zypper in " + packages + " -y", shell=True)
+    call("sudo zypper in " + packages, shell=True)
 elif file_exists('/usr/bin/apt-get'):
     call("sudo apt install " + packages + " -y", shell=True)
 else:
@@ -33,6 +33,8 @@ call("echo 'source ~/user-sync/vimrc' > ~/.vimrc", shell=True)
 call("git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim", shell=True)
 call("vim +PluginInstall +qall", shell=True)
 
-fishorbash = raw_input("Would you like to use fish or bash? (f/b)")
+fishorbash = raw_input("Would you like to use fish, bash, or zsh? (f/b/z)")
 if fishorbash == "f":
     call("chsh -s /usr/bin/fish", shell=True)
+if fishorbash == "z":
+    call("chsh -s /usr/bin/zsh", shell=True)
