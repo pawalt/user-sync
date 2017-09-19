@@ -1,7 +1,6 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible              " vundle requires
+filetype off                  " vundle requires
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -10,60 +9,65 @@ Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-sensible'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'dag/vim-fish'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Shougo/neocomplete.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call vundle#end()            " vundle requires
+filetype plugin indent on    " vundle requires
 
 " setting colorscheme for background
-set t_Co=256
-
 syntax enable
-colorscheme gruvbox
+silent! colorscheme gruvbox
 set background=dark
-set laststatus=2
 
+" tabs of size 4 made of spaces
 set tabstop=4
-set softtabstop=0 noexpandtab
+set softtabstop=4
+set expandtab
 set shiftwidth=4
 
 set shell=/bin/bash
 
 func! WordProcessorMode()
-  setlocal formatoptions=1
-  setlocal noexpandtab
-  map j gj
-  map k gk
-  setlocal spell spelllang=en_us
-  set complete+=s
-  set formatprg=par
-  setlocal wrap
-  setlocal linebreak
+	setlocal formatoptions=1
+	setlocal noexpandtab
+	map j gj
+	map k gk
+	setlocal spell spelllang=en_us
+	set complete+=s
+	set formatprg=par
+	setlocal wrap
+	setlocal linebreak
 endfu
 com! WP call WordProcessorMode()
 augroup wordprocessor
-  autocmd!
-  autocmd FileType text,txt       call WordProcessorMode()
+	autocmd!
+	autocmd FileType text,txt       call WordProcessorMode()
 augroup END
 
 " Notes settings
 let g:notes_directories = ['~/Documents/Notes']
 let g:notes_suffix = '.txt'
 
-" Paste toggle
+" paste info
 set pastetoggle=<F2>
+
+" Airline symbols
+let g:airline_powerline_fonts = 1
+
+" enable code folding
+set foldmethod=indent
+" Keep all folds open when a file is opened
+augroup OpenAllFoldsOnFileOpen
+	autocmd!
+	autocmd BufRead * normal zR
+augroup END
+
+" completion settings
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+inoremap <expr><C-f>     neocomplete#complete_common_string()
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
