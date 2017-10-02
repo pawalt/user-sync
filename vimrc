@@ -13,7 +13,8 @@ Plugin 'dag/vim-fish'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'neomake/neomake'
+Plugin 'Shougo/deoplete.nvim'
 
 call vundle#end()            " vundle requires
 filetype plugin indent on    " vundle requires
@@ -66,8 +67,9 @@ augroup OpenAllFoldsOnFileOpen
 	autocmd BufRead * normal zR
 augroup END
 
-" completion settings
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-inoremap <expr><C-f>     neocomplete#complete_common_string()
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" screen resize settings
+nnoremap <C-Up> <ESC>:vert res +10<CR>
+nnoremap <C-Down> <ESC>:vert res -10<CR>
+
+" deoplete settings
+let g:deoplete#enable_at_startup = 1

@@ -47,6 +47,14 @@ function vim
     nvim $argv
 end
 
-set EDITOR nvim
+function ed
+    emacs --daemon
+end
+
+function ec
+    emacsclient $argv
+end
+
+set -x EDITOR nvim
 
 set theme_color_scheme base16-dark
