@@ -7,3 +7,4 @@ This contains my user settings for things like vim and bash aliases
 3. Install [vimix](https://github.com/vinceliuice/vimix-gtk-themes)
 4. Install [paper](https://snwh.org/paper/download)
 5. Install ublock origin if needed
+6. Install omf and grab bobthefish theme (can be automated soon)
