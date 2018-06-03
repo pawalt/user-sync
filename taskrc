@@ -44,3 +44,4 @@ uda.totalactivetime.label=Total active time
 uda.totalactivetime.values=
 urgency.blocking.coefficient=0.0
 default.command=urgency.above:0 next
+context.work=+work

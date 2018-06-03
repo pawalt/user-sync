@@ -55,6 +55,22 @@ function ec
     emacsclient $argv
 end
 
+function jump
+    ssh -J peyton@172.30.40.15 $argv
+end
+
+function jur
+    jump -l root $argv
+end
+
+function krain
+    kill (ps ax | grep './Risk_of_Rain' | grep -v grep | awk '{print $1}')
+end
+
+function tp
+    task add project:$argv
+end
+
 set -x EDITOR nvim
 
 set theme_color_scheme base16-dark
