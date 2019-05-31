@@ -64,13 +64,38 @@ function jur
 end
 
 function krain
-    kill (ps ax | grep './Risk_of_Rain' | grep -v grep | awk '{print $1}')
+    kill (ps ax | grep -i rain | grep -v grep | awk '{print $1}')
 end
 
 function tp
     task add project:$argv
 end
 
+function refp
+    killall polybar; polybar top 2> /dev/null &; disown %
+end
+
+function reft
+    killall tint2; tint2 2> /dev/null &; disown %
+end
+
+export NNN_TMPFILE="/tmp/nnn"
+
+function n --description 'support nnn quit and change directory'
+  nnn $argv
+
+  if test -e $NNN_TMPFILE
+    . $NNN_TMPFILE
+    rm $NNN_TMPFILE
+  end
+end
+
 set -x EDITOR nvim
 
-set theme_color_scheme base16-dark
+set -g theme_color_scheme base16-dark
+set -g theme_title_display_process yes
+set -g NNN_USE_EDITOR 1
+set -gx PATH /home/peyton/.local/bin /snap/bin /home/peyton/go/bin $PATH 
+
+# OPAM configuration
+source /home/peyton/.opam/opam-init/init.fish > /dev/null 2> /dev/null or true
