@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/Library/Python/3.7/bin:$HOME/go/bin:/usr/local/go/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/pwalters18/.oh-my-zsh"
@@ -70,7 +70,7 @@ DEFAULT_USER="pwalters18"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,8 +108,23 @@ alias l='ls -CF'
 alias ll='ls -alh'
 alias clip='xclip -i -selection clipboard'
 alias vim='nvim'
+alias k='kubectl'
+source <(kubectl completion zsh)
 
-alias dev_proxy='http_proxy=http://bproxy.tdmz1.bloomberg.com:80 https_proxy=http://bproxy.tdmz1.bloomberg.com:80'
-alias ext_proxy='http_proxy=http://proxy.bloomberg.com:81 https_proxy=http://proxy.bloomberg.com:81'
+alias proxy='http_proxy=http://proxy.bloomberg.com:81 https_proxy=http://proxy.bloomberg.com:81 HTTP_PROXY=http://proxy.bloomberg.com:81 HTTPS_PROXY=http://proxy.bloomberg.com:81'
 
-alias proxy='/Users/pwalters18/bin/bb-nodeproxy --wpadUrl=http://wpad.bloomberg.com/wpad-la.dat'
+eval $(opam env)
+
+ec () {
+  /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -s w1 $1 &
+  disown %
+}
+ek () {
+  kill $(ps ax | grep Emacs | awk '{print $1}')
+}
+
+alias es='emacs --daemon=w1; emacs --daemon=w2'
+alias et='emacsclient -t -s w2'
+
+export EDITOR=nvim
+
