@@ -2,7 +2,7 @@
 export PATH=$HOME/Library/Python/3.7/bin:$HOME/go/bin:/usr/local/go/bin:$HOME/bin:/usr/local/bin:/usr/local/kubebuilder/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/peyton/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -109,29 +109,12 @@ alias ll='ls -alh'
 alias clip='xclip -i -selection clipboard'
 alias vim='nvim'
 alias k='kubectl'
+alias tf='terraform'
 source <(kubectl completion zsh)
 
-ec () {
-  /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -s w1 $1 &
-  disown %
-}
-ek () {
-  kill $(ps ax | grep Emacs | awk '{print $1}')
-}
-
-alias es='emacs --daemon=w1; emacs --daemon=w2'
-alias et='emacsclient -t -s w2'
 alias cat="bat -P --style=plain"
 
 export EDITOR=nvim
-
-eval `opam config env`
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/peyton/lib/google-cloud-sdk/path.zsh.inc' ]; then . '/home/peyton/lib/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/peyton/lib/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/peyton/lib/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Collect Kubernetes contexts
 export KUBECONFIG="$HOME/.kube/config"
@@ -141,3 +124,4 @@ for contextFile in `find "${KUBE_CONTEXTS}" -type f`
 do
   export KUBECONFIG="$contextFile:$KUBECONFIG"
 done
+
